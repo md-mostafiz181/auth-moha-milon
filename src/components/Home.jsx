@@ -1,4 +1,13 @@
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
+
+
+
 const Home = () => {
+    const authInfo = useContext(AuthContext)
+    console.log(authInfo)
+
+
   return (
     <div>
       <div
@@ -11,7 +20,7 @@ const Home = () => {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Auth Moha Milon</h1>
+            <h1 className="mb-5 text-5xl font-bold">Auth Moha Milon:{authInfo.name} </h1>
             <p className="mb-5">Here I explore about Auth more.</p>
             <button className="btn btn-primary">Get Started</button>
           </div>
