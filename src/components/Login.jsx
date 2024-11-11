@@ -5,7 +5,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext)
+    const {signIn, signInWithGoogle} = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handleLogin= e =>{
@@ -13,6 +13,8 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value
         console.log(email,password)
+
+    
 
         signIn(email,password)
         .then(result => {
@@ -24,6 +26,10 @@ const Login = () => {
             console.log(error)
         })
 
+    }
+
+    const handleSignInWithGoogle = () =>{
+        signInWithGoogle()
     }
     return (
         <div className="flex items-center justify-center h-screen bg-gray-100">
@@ -65,6 +71,8 @@ const Login = () => {
                 >
                     Login
                 </button>
+
+                <button onClick={handleSignInWithGoogle} className="btn btn-primary w-full mt-2">Google</button>
 
                 <p className="text-center text-gray-600 mt-4">
                     Dont have an account?
